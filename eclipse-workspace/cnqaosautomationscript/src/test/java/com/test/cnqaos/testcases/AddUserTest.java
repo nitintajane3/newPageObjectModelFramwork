@@ -48,7 +48,7 @@ public class AddUserTest extends TestBase
 	
 	}
 	
-	@Test(dataProvider= "AddUserDataSheet")
+	@Test(dataProvider= "AddUserDataSheet", enabled = false)
 	public void addUsersTest(String centername,String civilstatusname,String sexname,String name,String address,String country,
 			String city,String postalcode,String phonenumber,String emailaddress,String rolename,String quality,String speciality,
 			String copanytype,String companynumber,String contracttype,
@@ -137,7 +137,7 @@ public class AddUserTest extends TestBase
 	@AfterTest
 	public  void ClosedBrower()
 	{
-		//driver.quit();
+		driver.close();
 	}
 	
 	@DataProvider

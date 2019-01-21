@@ -21,6 +21,10 @@ public class LoginTest extends TestBase
 	LoginPage loginPage;
 	HomePage homePage ;
 	String expectedhomepagetitle = "Home Page";
+	String usernames = System.getProperty("username");
+	
+	String password = System.getProperty("pass");
+	String user = System.getProperty("user");
 
 	public LoginTest() throws IOException 
 	{
@@ -35,13 +39,13 @@ public class LoginTest extends TestBase
 		initializebrowser();
 	}
 	
-	@Test(priority = 1, dataProvider = "LoginData")
-	public void validLoginTestCaseOne(String username, String password) throws IOException, InterruptedException
+	@Test(enabled = true)
+	public void validLoginTestCaseOne() throws IOException, InterruptedException
 	{
 		loginPage = new LoginPage();
 		homePage = new HomePage();
 		
-		loginPage.clickOnLoginButton(username,password);
+		loginPage.clickOnLoginButton(user,password);
 		
 		try 
 		{
@@ -67,17 +71,17 @@ public class LoginTest extends TestBase
 	public void closedBrowser() 
 	{
 		
-		driver.quit();
+		driver.close();
 		// TODO Auto-generated method stub
 
 	}
 	
 	
-	@DataProvider
+	/*@DataProvider
 	public  Object[][] LoginData() throws IOException
 	{
 		 Object objects[][] = TestUtils.getTestData(sheetname,filepath);
 		 return objects;
 	}
-
+*/
 }

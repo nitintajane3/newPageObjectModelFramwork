@@ -3,6 +3,7 @@ package com.test.cnqaos.testcases;
 import java.io.IOException;
 
 import org.openqa.selenium.Alert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -48,7 +49,7 @@ public class AddStudentTest extends TestBase
 		
 	}
 	
-	@Test(dataProvider="studentdata")
+	@Test(dataProvider="studentdata", enabled = true)
 	public void addStudentTest(String centername,String civilstatus,String sex,String name,String address,String country,
 			                   String city,String postalcode,String phonenumber,String emailaddress,String dateofbirth,
 			                   String birthplace,String departmentname,String emergencycontact,String securitynumber,
@@ -138,6 +139,12 @@ public class AddStudentTest extends TestBase
 	{
 		Object object[][] = TestUtils.getTestData(sheetname, filepath);
 		return object;
+	}
+	
+	@AfterMethod
+	public void teardown()
+	{
+		driver.close();
 	}
 
 }
