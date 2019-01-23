@@ -30,7 +30,7 @@ public class NewExtendReport
         htmlReporter = new ExtentHtmlReporter(currentDir + "/extentreports/" + hmlflenme + ".html");
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
-        extent.setSystemInfo("Host Name", "Tamplo.com");
+        extent.setSystemInfo("Host Name", "CNQAOS.com");
         extent.setSystemInfo("Environment", "Automation Testing");
         extent.setSystemInfo("Test By", "Nitin Tajane");
 
