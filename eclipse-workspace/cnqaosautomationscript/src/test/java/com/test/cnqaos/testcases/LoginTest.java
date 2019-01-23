@@ -5,14 +5,22 @@ import java.io.IOException;
 import org.openqa.selenium.Alert;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.Markup;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.cnqaos.pages.HomePage;
 import com.cnqaos.pages.LoginPage;
 import com.cnqaos.testbase.TestBase;
+import com.cnqaos.utils.NewExtendReport;
 import com.cnqaos.utils.TestUtils;
+import com.cnqaos.utils.emailReport;
 
 public class LoginTest extends TestBase
 {
@@ -22,9 +30,10 @@ public class LoginTest extends TestBase
 	HomePage homePage ;
 	String expectedhomepagetitle = "Home Page";
 	String usernames = System.getProperty("username");
+	ExtentTest test;
 	
-	String password = System.getProperty("pass");
-	String user = System.getProperty("user");
+	/*String password = System.getProperty("pass");
+	String user = System.getProperty("user");*/
 
 	public LoginTest() throws IOException 
 	{
@@ -37,21 +46,32 @@ public class LoginTest extends TestBase
 	{
 		// TODO Auto-generated method stub
 		initializebrowser();
+		
+		NewExtendReport.newReport("CNQAOS Test", "cnqaos_login_script");
+		test = NewExtendReport.extent.createTest("login testcase");
+		test.log(Status.PASS, MarkupHelper.createLabel("browser load successfully", ExtentColor.GREEN));
+		
+		NewExtendReport.extent.flush();
+		
 	}
 	
-	@Test(enabled = true)
-	public void validLoginTestCaseOne() throws IOException, InterruptedException
+	@Test(enabled = true,dataProvider="LoginData")
+	public void validLoginTestCaseOne(String user,String password) throws IOException, InterruptedException
 	{
 		loginPage = new LoginPage();
 		homePage = new HomePage();
 		
 		loginPage.clickOnLoginButton(user,password);
+		test.log(Status.PASS, MarkupHelper.createLabel(" this user login successfully = " + user, ExtentColor.GREEN));
+		
 		
 		try 
 		{
 			String actualhomepagetitle = homePage.verifyHomePageTitle();
 			
 			Assert.assertEquals(actualhomepagetitle, expectedhomepagetitle, "home page not found");
+			
+			test.log(Status.PASS, MarkupHelper.createLabel("home page verify successfully", ExtentColor.GREEN));
 				
 		} catch (Exception e) 
 		{
@@ -61,6 +81,7 @@ public class LoginTest extends TestBase
 			System.out.println(alerttext);
 			
 			alert.accept();
+			test.log(Status.PASS, MarkupHelper.createLabel("fail to identify home page", ExtentColor.GREEN));
 			
 		}
 				
@@ -71,17 +92,26 @@ public class LoginTest extends TestBase
 	public void closedBrowser() 
 	{
 		
+		NewExtendReport.extent.flush();
 		driver.close();
+		
 		// TODO Auto-generated method stub
 
 	}
 	
+	@AfterSuite
 	
-	/*@DataProvider
+	public  void sendEmail() throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		emailReport.execute("cnqaos_login_script");
+	}
+	
+	@DataProvider
 	public  Object[][] LoginData() throws IOException
 	{
 		 Object objects[][] = TestUtils.getTestData(sheetname,filepath);
 		 return objects;
 	}
-*/
+
 }

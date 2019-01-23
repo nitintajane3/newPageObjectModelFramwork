@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="cnqaos test" duration-ms="4" started-at="2019-01-21T06:50:26Z" finished-at="2019-01-21T06:50:26Z">
+  <suite name="Default suite" duration-ms="8546" started-at="2019-01-23T12:15:47Z" finished-at="2019-01-23T12:15:55Z">
     <groups>
     </groups>
-    <test name="cnqaos test" duration-ms="4" started-at="2019-01-21T06:50:26Z" finished-at="2019-01-21T06:50:26Z">
-    </test> <!-- cnqaos test -->
-  </suite> <!-- cnqaos test -->
+    <test name="Default test" duration-ms="8546" started-at="2019-01-23T12:15:47Z" finished-at="2019-01-23T12:15:55Z">
+      <class name="com.test.cnqaos.testcases.LoginTest">
+        <test-method status="PASS" signature="loginSetUp()[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="loginSetUp" is-config="true" duration-ms="7330" started-at="2019-01-23T17:45:47Z" finished-at="2019-01-23T17:45:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginSetUp -->
+        <test-method status="PASS" signature="validLoginTestCaseOne(java.lang.String, java.lang.String)[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="validLoginTestCaseOne" duration-ms="621" started-at="2019-01-23T17:45:55Z" data-provider="LoginData" finished-at="2019-01-23T17:45:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[1000063]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[changemenow]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validLoginTestCaseOne -->
+        <test-method status="PASS" signature="closedBrowser()[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="closedBrowser" is-config="true" duration-ms="121" started-at="2019-01-23T17:45:55Z" finished-at="2019-01-23T17:45:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closedBrowser -->
+        <test-method status="PASS" signature="sendEmail()[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="sendEmail" is-config="true" duration-ms="4300" started-at="2019-01-23T17:45:55Z" finished-at="2019-01-23T17:46:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendEmail -->
+      </class> <!-- com.test.cnqaos.testcases.LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

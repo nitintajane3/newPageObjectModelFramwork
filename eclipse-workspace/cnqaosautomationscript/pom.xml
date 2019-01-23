@@ -29,15 +29,28 @@
            <artifactId>maven-surefire-plugin</artifactId>
            <version>3.0.0-M3</version>
            <configuration>
-           <systemPropertyVariables>
+           <!-- <systemPropertyVariables>
 							<pass>${pass}</pass>
 							<user>${user}</user>
-					</systemPropertyVariables>
+					</systemPropertyVariables> -->
            <suiteXmlFiles>
            <suiteXmlFile>testng.xml</suiteXmlFile>
            </suiteXmlFiles>
            </configuration>
    </plugin>
+    <plugin>
+      <artifactId>maven-assembly-plugin</artifactId>
+      <configuration>
+        <archive>
+          <manifest>
+            <mainClass>fully.qualified.MainClass</mainClass>
+          </manifest>
+        </archive>
+        <descriptorRefs>
+          <descriptorRef>jar-with-dependencies</descriptorRef>
+        </descriptorRefs>
+      </configuration>
+    </plugin>
  </plugins>
  </build>
  
@@ -48,11 +61,25 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+<dependency>
+    <groupId>javax.mail</groupId>
+    <artifactId>mail</artifactId>
+    <version>1.5.0-b01</version>
+</dependency>
      <dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
         <version>3.11.0</version>
     </dependency>
+    <dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-server</artifactId>
+    <version>3.11.0</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server-standalone -->
+
+
     <dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
