@@ -1,5 +1,6 @@
 package com.cnqaos.testbase;
 
+import java.beans.IntrospectionException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -21,6 +22,7 @@ public class TestBase
 	public static Properties prob;
 	public  static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
+	public static final int invocationcount = 4;
 	
 	
 	public TestBase() throws IOException

@@ -7,7 +7,7 @@
         <methods>
           <include name="sendEmail"/>
           <include name="loginSetUp"/>
-          <include name="validLoginTestCaseOne" invocation-numbers="0"/>
+          <include name="validLoginTestCaseOne"/>
           <include name="closedBrowser"/>
         </methods>
       </class> <!-- com.test.cnqaos.testcases.LoginTest -->

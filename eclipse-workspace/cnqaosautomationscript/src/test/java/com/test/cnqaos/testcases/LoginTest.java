@@ -13,20 +13,20 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
-import com.aventstack.extentreports.markuputils.Markup;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.cnqaos.pages.HomePage;
 import com.cnqaos.pages.LoginPage;
 import com.cnqaos.testbase.TestBase;
 import com.cnqaos.utils.NewExtendReport;
 import com.cnqaos.utils.TestUtils;
-import com.cnqaos.utils.emailReport;
+
 
 public class LoginTest extends TestBase
 {
-	String sheetname = "Sheet1";
-	String filepath = "/src/main/java/com/cnqaos/testdata/logindata.xlsx";
-	LoginPage loginPage;
+	String sheetname = "masterdata";
+	String srcpath = System.getProperty("user.dir");
+	String filepath = srcpath + "/src/main/java/com/cnqaos/testdata/mastersheet.xlsx";
+	LoginPage loginPage; 
 	HomePage homePage ;
 	String expectedhomepagetitle = "Home Page";
 	String usernames = System.getProperty("username");
@@ -104,13 +104,13 @@ public class LoginTest extends TestBase
 	public  void sendEmail() throws InterruptedException {
 		// TODO Auto-generated method stub
 		
-		emailReport.execute("cnqaos_login_script");
+		//emailReport.execute("cnqaos_login_script");
 	}
 	
 	@DataProvider
 	public  Object[][] LoginData() throws IOException
 	{
-		 Object objects[][] = TestUtils.getTestData(sheetname,filepath);
+		 Object objects[][] = TestUtils.getExcelDataBasedOnStartingPoint(sheetname, filepath, "login");
 		 return objects;
 	}
 

@@ -14,18 +14,16 @@ public class runTestNg {
 		
 		TestListenerAdapter tla = new TestListenerAdapter();
 		TestNG testng = new TestNG();
-		/*List<String> suites = Lists.newArrayList();
-		suites.add("testng.xml");//path to xml..
-*/		
-		/*testng.setTestSuites(suites);
-		testng.run();*/
-		
 		
 		testng.setTestClasses(new Class[] { LoginTest.class });
 		
 		testng.run();
 		
-		
+		/*List<String> suites = Lists.newArrayList();
+		suites.add("testng.xml");//path to xml..
+*/		
+		/*testng.setTestSuites(suites);
+		testng.run();*/
 		
 
 	}

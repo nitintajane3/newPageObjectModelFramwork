@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="8546" started-at="2019-01-23T12:15:47Z" finished-at="2019-01-23T12:15:55Z">
+  <suite name="Default suite" duration-ms="553" started-at="2019-01-25T08:57:33Z" finished-at="2019-01-25T08:57:34Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="8546" started-at="2019-01-23T12:15:47Z" finished-at="2019-01-23T12:15:55Z">
+    <test name="Default test" duration-ms="553" started-at="2019-01-25T08:57:33Z" finished-at="2019-01-25T08:57:34Z">
       <class name="com.test.cnqaos.testcases.LoginTest">
-        <test-method status="PASS" signature="loginSetUp()[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="loginSetUp" is-config="true" duration-ms="7330" started-at="2019-01-23T17:45:47Z" finished-at="2019-01-23T17:45:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginSetUp -->
-        <test-method status="PASS" signature="validLoginTestCaseOne(java.lang.String, java.lang.String)[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="validLoginTestCaseOne" duration-ms="621" started-at="2019-01-23T17:45:55Z" data-provider="LoginData" finished-at="2019-01-23T17:45:55Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[1000063]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[changemenow]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="FAIL" signature="validLoginTestCaseOne(java.lang.String, java.lang.String)[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="validLoginTestCaseOne" duration-ms="539" started-at="2019-01-25T14:27:33Z" data-provider="LoginData" finished-at="2019-01-25T14:27:34Z">
+          <exception class="org.testng.internal.reflect.MethodMatcherException">
+            <message>
+              <![CDATA[
+Data provider mismatch
+Method: validLoginTestCaseOne([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=1, type=java.lang.String, declaredAnnotations=[]}])
+Arguments: []]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.internal.reflect.MethodMatcherException: 
+Data provider mismatch
+Method: validLoginTestCaseOne([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=1, type=java.lang.String, declaredAnnotations=[]}])
+Arguments: []
+	at org.testng.internal.reflect.DataProviderMethodMatcher.getConformingArguments(DataProviderMethodMatcher.java:49)
+	at org.testng.internal.Invoker.injectParameters(Invoker.java:1293)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1187)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.internal.reflect.MethodMatcherException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validLoginTestCaseOne -->
-        <test-method status="PASS" signature="closedBrowser()[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="closedBrowser" is-config="true" duration-ms="121" started-at="2019-01-23T17:45:55Z" finished-at="2019-01-23T17:45:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closedBrowser -->
-        <test-method status="PASS" signature="sendEmail()[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="sendEmail" is-config="true" duration-ms="4300" started-at="2019-01-23T17:45:55Z" finished-at="2019-01-23T17:46:00Z">
+        <test-method status="PASS" signature="sendEmail()[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="sendEmail" is-config="true" duration-ms="4" started-at="2019-01-25T14:27:34Z" finished-at="2019-01-25T14:27:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- sendEmail -->

@@ -28,6 +28,7 @@ public class NewExtendReport
     	
     	 String currentDir = System.getProperty("user.dir");
         htmlReporter = new ExtentHtmlReporter(currentDir + "/extentreports/" + hmlflenme + ".html");
+        htmlReporter.setAppendExisting(false);
         extent = new ExtentReports();
         extent.attachReporter(htmlReporter);
         extent.setSystemInfo("Host Name", "CNQAOS.com");
