@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name = "nitintjb ">
+<test name = "testname">
+<classes>
+ <class name  = "com.test.cnqaos.testcases.TestngValidation">
+</class>
+</classes>
+</test>
+</suite>
