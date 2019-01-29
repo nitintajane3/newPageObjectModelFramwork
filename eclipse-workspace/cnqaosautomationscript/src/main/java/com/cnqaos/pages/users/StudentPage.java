@@ -1,9 +1,10 @@
-package com.cnqaos.pages;
+package com.cnqaos.pages.users;
 
 import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -12,17 +13,19 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.cnqaos.testbase.TestBase;
 
-public class AddStudentPage extends TestBase 
+
+
+public class StudentPage extends TestBase 
 
 
 {
 	
 	
-	AddUserPage addUserPage = new AddUserPage();
+	UserPage userPage = new UserPage();
 	Select select;
 	Boolean activecheck;
-	
-	public AddStudentPage() throws IOException
+	JavascriptExecutor js = (JavascriptExecutor)driver;
+	public StudentPage() throws IOException
 	{
 		PageFactory.initElements(driver, this);
 	}
@@ -86,6 +89,33 @@ public class AddStudentPage extends TestBase
 	
 	@FindBy(xpath="//table[@class='table table-striped']/tbody/tr")
 	List<WebElement> listofstudentrecord;
+	
+	
+	// student page element 
+	
+	@FindBy(xpath="//button[@class='button multiSelectButton ng-binding']")
+	WebElement selectcenter;
+	
+	@FindBy(xpath ="//div[@id='midd-container']/div/div[1]/span/div/form/div[1]/div[2]/input")
+	WebElement centersearchfield;
+	
+	@FindBy(xpath="//*[@id='midd-container']/div/div[1]/span/button")
+	WebElement dropdownboxcenter;
+	
+	@FindBy(xpath="//td[@align='center']/dir-pagination-controls/ul/li")
+	List<WebElement> paginationcount;
+	
+	@FindBy(xpath="//table[@class='table table-striped']/tfoot/tr/td/dir-pagination-controls/ul/li[@class='ng-scope'][@ng-if='directionLinks']/a")
+	WebElement btnforwordpegination;
+	
+	@FindBy(xpath="//button[@id='editButton']")
+	WebElement buttonupdate;
+	
+	@FindBy(xpath="//input[@id='cancel']")
+	WebElement buttoncancel;
+	
+	@FindBy(xpath="//input[@id='userCode']")
+	WebElement studentid;
 	
 	public void addStudentLink()
 	{
@@ -232,11 +262,116 @@ public class AddStudentPage extends TestBase
 			} else 
 			{
 				System.out.println("Student  not present");
+				
 			}
 		}
 		
 	}
 	
+	public void selectCenter(String centername) throws InterruptedException 
+	{
+		selectcenter.click();
+		centersearchfield.sendKeys(centername);
+		driver.findElement(By.xpath("//div[@class='checkBoxContainer']/div/div/label/span[contains(text(),'"+centername+"')]")).click();
+		dropdownboxcenter.click();
+		
+	}
+	
+	public void SelectRecordAndClickOnEditBtn(String studentname,int editbuttonindex) throws InterruptedException 
+	{
+		int actualsizeofpegination = paginationcount.size();
+		int count = 0;
+	if (actualsizeofpegination!=0) 
+	{
+		int actualpage = actualsizeofpegination-4;
+		
+		for(int k =1;k<=actualpage;k++)
+		{
+			
+		   for(int i=1;i<=10;i++)
+		  {
+			   
+			Thread.sleep(500);
+			WebElement readname = driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr["+i+"]/td[3]"));
+			String getname = readname.getText();
+			
+			    if(getname.equals(studentname)) 
+			  {
+				driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr["+i+"]/td["+editbuttonindex+"]/a")).click();
+				count = 1;
+				break;
+			  }
+		  }
+		   if(count==1) {break;}
+		     try 
+		     {
+		    	 btnforwordpegination.click();
+		     } catch (Exception e) 
+		            {
+			            System.out.println("not record found");
+		            }  
+		     
+		}
+		
+		
+	}else 
+	{
+		for(int i=1;i<=10;i++)
+		{
+					
+			WebElement readname = driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr["+i+"]/td[3]"));
+			String getname = readname.getText();
+			
+			if(getname.equals(studentname)) 
+			{
+				driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr["+i+"]/td["+editbuttonindex+"]/a")).click();
+				break;
+			}
+			
+			
+		}
+	}
+	
+	}
+	
+public void clickOnUpdateButton() 
+{
+	buttonupdate.click();
+}
 
+public void clickOnCancelButton() 
+{
+
+	buttoncancel.click();
+}
+
+public String checkStudentUpdateOrNot(String username) 
+{
+	String expectedreturnname ="";
+	for(int i=1;i<=10;i++)
+	{
+		try 
+		{
+			
+		
+		WebElement readname = driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr["+i+"]/td[3]"));
+		String getname = readname.getText();
+		
+		   if(getname.equals(username)) 
+		   {
+			WebElement webelementname = driver.findElement(By.xpath("//table[@class='table table-striped']/tbody/tr["+i+"]/td[3]"));
+			String actualgetname = webelementname.getText();
+			expectedreturnname = actualgetname;
+			break;
+		    }
+	
+		} catch (Exception e) 
+		  {
+			System.out.println("record not found");
+		    break;
+	      }
+	}
+	return expectedreturnname;
+}
 	  
 }

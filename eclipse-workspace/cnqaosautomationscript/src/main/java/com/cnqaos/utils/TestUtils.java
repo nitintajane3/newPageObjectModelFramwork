@@ -23,6 +23,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.cnqaos.testbase.TestBase;
 
@@ -39,6 +40,7 @@ public class TestUtils extends  TestBase
 	
 	public static int PAGELOAD = 20;
 	public static int IMPLICIT = 10;
+	public static WebDriverWait wait = new WebDriverWait(driver, 10);
 
 	public static String userdirectory = System.getProperty("user.dir");
 	static Workbook book;

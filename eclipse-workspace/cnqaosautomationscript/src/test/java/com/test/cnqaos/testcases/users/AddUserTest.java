@@ -1,4 +1,4 @@
-package com.test.cnqaos.testcases;
+package com.test.cnqaos.testcases.users;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.cnqaos.pages.AddUserPage;
 import com.cnqaos.pages.LoginPage;
+import com.cnqaos.pages.users.UserPage;
 import com.cnqaos.testbase.TestBase;
 import com.cnqaos.utils.TestUtils;
 
@@ -17,7 +17,7 @@ public class AddUserTest extends TestBase
 {
 
 	String sheetname = "Sheet1";
-	AddUserPage adduserpage;
+	UserPage adduserpage;
 	String filepath = "/src/main/java/com/cnqaos/testdata/cnqaosuseraccountdata.xlsx";
 	LoginPage loginPage;
 	boolean b;
@@ -41,14 +41,14 @@ public class AddUserTest extends TestBase
 		
 		loginPage.clickOnLoginButton(prob.getProperty("username"),prob.getProperty("password"));
 		
-        adduserpage =  new AddUserPage();
+        adduserpage =  new UserPage();
 		
 		adduserpage.AddUserLink();
 		
 	
 	}
 	
-	@Test(dataProvider= "AddUserDataSheet", enabled = false)
+	@Test(dataProvider= "AddUserDataSheet", enabled = true)
 	public void addUsersTest(String centername,String civilstatusname,String sexname,String name,String address,String country,
 			String city,String postalcode,String phonenumber,String emailaddress,String rolename,String quality,String speciality,
 			String copanytype,String companynumber,String contracttype,

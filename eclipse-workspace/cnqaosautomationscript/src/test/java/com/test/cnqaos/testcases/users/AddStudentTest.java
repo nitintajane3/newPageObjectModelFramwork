@@ -1,4 +1,4 @@
-package com.test.cnqaos.testcases;
+package com.test.cnqaos.testcases.users;
 
 import java.io.IOException;
 
@@ -8,8 +8,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import com.cnqaos.pages.AddStudentPage;
-import com.cnqaos.pages.AddUserPage;
+import com.cnqaos.pages.users.StudentPage;
+import com.cnqaos.pages.users.UserPage;
 import com.cnqaos.pages.LoginPage;
 import com.cnqaos.testbase.TestBase;
 import com.cnqaos.utils.TestUtils;
@@ -18,12 +18,12 @@ public class AddStudentTest extends TestBase
 {
 
 	String sheetname = "Sheet1";
-	AddStudentPage studentPage ;
+	StudentPage studentPage ;
 	
 	String filepath = "/src/main/java/com/cnqaos/testdata/cnqaosstudentaccountdata.xlsx";
 	
 	LoginPage loginPage;
-	AddUserPage addUserPage;
+	UserPage userPage;
 	boolean b;
 	
 	public AddStudentTest() throws IOException {
@@ -41,9 +41,9 @@ public class AddStudentTest extends TestBase
 		
 		loginpages.clickOnLoginButton(prob.getProperty("username"), prob.getProperty("password"));
 		
-		studentPage =  new AddStudentPage();
+		studentPage =  new StudentPage();
 		
-		addUserPage = new AddUserPage();
+		userPage = new UserPage();
 		
 		studentPage.addStudentLink();
 		
@@ -59,25 +59,25 @@ public class AddStudentTest extends TestBase
 		
 		studentPage.addStudentButton();
 		
-		addUserPage.selectCenter(centername);
+		userPage.selectCenter(centername);
 		
 		studentPage.selectCivilStatus(civilstatus);
 		
-		addUserPage.selectSex(sex);
+		userPage.selectSex(sex);
 		
-		addUserPage.enterName(name);
+		userPage.enterName(name);
 		
-		addUserPage.enterAddress(address);
+		userPage.enterAddress(address);
 		
-		addUserPage.selectCountry(country);
+		userPage.selectCountry(country);
 		
-		addUserPage.selectCity(city);
+		userPage.selectCity(city);
 		
-		addUserPage.enterPostalCode(postalcode);
+		userPage.enterPostalCode(postalcode);
 		
-		addUserPage.enterPhoneNumber1(phonenumber);
+		userPage.enterPhoneNumber1(phonenumber);
 		
-		addUserPage.enterEmailAddress(emailaddress);
+		userPage.enterEmailAddress(emailaddress);
 		
 		studentPage.enterDateofBirth(dateofbirth);
 		
@@ -103,13 +103,13 @@ public class AddStudentTest extends TestBase
 		
 		Boolean validatedbolean = Boolean.parseBoolean(validated);
 		
-		addUserPage.checkValidated(validatedbolean);
+		userPage.checkValidated(validatedbolean);
 		
 		Boolean activebollean = Boolean.parseBoolean(active);
 		
 		studentPage.checkActive(activebollean);
 		
-		addUserPage.createRecord();
+		userPage.createRecord();
 		
 		Thread.sleep(6000);
 		

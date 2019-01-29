@@ -1,4 +1,4 @@
-package com.cnqaos.pages;
+package com.cnqaos.pages.users;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,13 +13,15 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.cnqaos.testbase.TestBase;
+import com.cnqaos.utils.TestUtils;
 
-public class AddUserPage extends TestBase
+public class UserPage extends TestBase
 {
 	
 	Select select;
 	
-	public AddUserPage() throws IOException
+	
+	public UserPage() throws IOException
 	{
 		PageFactory.initElements(driver, this);
 	}
@@ -53,6 +55,7 @@ public class AddUserPage extends TestBase
 	WebElement sex;
 	
 	@FindBy(xpath= "//input[@id='name']")
+	
 	WebElement name;
 	
 	@FindBy(xpath= "//textarea[@id='address']")
@@ -114,6 +117,12 @@ public class AddUserPage extends TestBase
 	
 	@FindBy(xpath= "//input[@id='sabrogated']")
 	WebElement sebrogated;
+	
+	@FindBy(xpath="//button[@class='btn btn-default common-btn ng-binding'][contains(text(),'Update')]")
+	WebElement buttonupdate;
+	
+	@FindBy(xpath="//input[@class='btn btn-default common-btn'][@value='Cancel']")
+	WebElement buttoncancel;
 	
 //for teacher	
 	
@@ -194,6 +203,8 @@ public class AddUserPage extends TestBase
 	
 	public void enterName(String nametext) 
 	{
+		
+		TestUtils.wait.until(ExpectedConditions.elementToBeClickable(name)).clear();
 		name.sendKeys(nametext);
 	}
 	
@@ -424,6 +435,16 @@ public class AddUserPage extends TestBase
 				System.out.println("user not present");
 			}
     	}
+	}
+    
+    public void clickOnUpdateButton() 
+    {
+		buttonupdate.click();
+	}
+    
+    public void clickOnCancelButton() 
+    {
+		buttoncancel.click();
 	}
 	
 	

@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -82,5 +83,19 @@ public class TestBase
 		
 		driver.get(prob.getProperty("url"));	
 		
+	}
+	
+	public void widnowsAlertAccept() throws InterruptedException 
+	{
+		Thread.sleep(6000);
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+	}
+	
+	public void widowsAlertDismiss() throws InterruptedException 
+	{
+		Thread.sleep(6000);
+		Alert alert = driver.switchTo().alert();
+		alert.dismiss();
 	}
 }

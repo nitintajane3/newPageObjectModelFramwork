@@ -1,56 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="553" started-at="2019-01-25T08:57:33Z" finished-at="2019-01-25T08:57:34Z">
+  <suite name="Default suite" duration-ms="15491" started-at="2019-01-29T12:27:27Z" finished-at="2019-01-29T12:27:43Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="553" started-at="2019-01-25T08:57:33Z" finished-at="2019-01-25T08:57:34Z">
-      <class name="com.test.cnqaos.testcases.LoginTest">
-        <test-method status="FAIL" signature="validLoginTestCaseOne(java.lang.String, java.lang.String)[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="validLoginTestCaseOne" duration-ms="539" started-at="2019-01-25T14:27:33Z" data-provider="LoginData" finished-at="2019-01-25T14:27:34Z">
-          <exception class="org.testng.internal.reflect.MethodMatcherException">
-            <message>
-              <![CDATA[
-Data provider mismatch
-Method: validLoginTestCaseOne([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=1, type=java.lang.String, declaredAnnotations=[]}])
-Arguments: []]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.internal.reflect.MethodMatcherException: 
-Data provider mismatch
-Method: validLoginTestCaseOne([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}, Parameter{index=1, type=java.lang.String, declaredAnnotations=[]}])
-Arguments: []
-	at org.testng.internal.reflect.DataProviderMethodMatcher.getConformingArguments(DataProviderMethodMatcher.java:49)
-	at org.testng.internal.Invoker.injectParameters(Invoker.java:1293)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1187)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:126)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:744)
-	at org.testng.TestRunner.run(TestRunner.java:602)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
-	at org.testng.TestNG.runSuites(TestNG.java:1144)
-	at org.testng.TestNG.run(TestNG.java:1115)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.internal.reflect.MethodMatcherException -->
+    <test name="Default test" duration-ms="15491" started-at="2019-01-29T12:27:27Z" finished-at="2019-01-29T12:27:43Z">
+      <class name="com.test.cnqaos.testcases.trainings.TrainingContentTest">
+        <test-method status="PASS" signature="Setup()[pri:0, instance:com.test.cnqaos.testcases.trainings.TrainingContentTest@4f7d0008]" name="Setup" is-config="true" duration-ms="7464" started-at="2019-01-29T17:57:27Z" finished-at="2019-01-29T17:57:35Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validLoginTestCaseOne -->
-        <test-method status="PASS" signature="sendEmail()[pri:0, instance:com.test.cnqaos.testcases.LoginTest@6500df86]" name="sendEmail" is-config="true" duration-ms="4" started-at="2019-01-25T14:27:34Z" finished-at="2019-01-25T14:27:34Z">
+        </test-method> <!-- Setup -->
+        <test-method status="PASS" signature="addTrainingTest()[pri:0, instance:com.test.cnqaos.testcases.trainings.TrainingContentTest@4f7d0008]" name="addTrainingTest" duration-ms="7998" started-at="2019-01-29T17:57:35Z" finished-at="2019-01-29T17:57:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- sendEmail -->
-      </class> <!-- com.test.cnqaos.testcases.LoginTest -->
+        </test-method> <!-- addTrainingTest -->
+      </class> <!-- com.test.cnqaos.testcases.trainings.TrainingContentTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
