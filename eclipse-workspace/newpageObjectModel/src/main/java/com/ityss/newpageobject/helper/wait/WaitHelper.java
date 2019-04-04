@@ -48,7 +48,8 @@ public class WaitHelper
 	 */
 	private WebDriverWait getWait(int timeOutInSeconds, int pollingEveryInMiliSec) {
 		WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
-		//wait.pollingEvery(Duration.ofMillis(pollingEveryInMiliSec));
+		wait.pollingEvery(pollingEveryInMiliSec, TimeUnit.MILLISECONDS);
+	
 		wait.ignoring(NoSuchElementException.class);
 		wait.ignoring(ElementNotVisibleException.class);
 		wait.ignoring(StaleElementReferenceException.class);
@@ -119,10 +120,12 @@ public class WaitHelper
 	 * @return
 	 */
 	private Wait<WebDriver> getfluentWait(int timeOutInSeconds, int pollingEveryInMiliSec) {
-		Wait<WebDriver> fWait = new FluentWait<WebDriver>(driver);
-				//.withTimeout(Duration.ofSeconds(timeOutInSeconds))
-				//.pollingEvery(Duration.ofMillis(pollingEveryInMiliSec)).ignoring(NoSuchElementException.class);
-		return fWait;
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)							
+				.withTimeout(30, TimeUnit.SECONDS) 			
+				.pollingEvery(5, TimeUnit.SECONDS) 	
+				
+				.ignoring(NoSuchElementException.class);
+		return wait;
 	}
 	
 	/**
@@ -140,6 +143,7 @@ public class WaitHelper
 	public void pageLoadTime(long timeout, TimeUnit unit){
 		log.info("waiting for page to load for : "+ unit+ " seconds");
 		driver.manage().timeouts().pageLoadTimeout(timeout, unit);
+		
 		log.info("page is loaded");
 	}
 	

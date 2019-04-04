@@ -64,7 +64,8 @@ private static Logger log = LoggerHelper.getLogger(AssertionHelper.class);
 		if(status){
 			pass();
 		}
-		else{
+		else
+		{
 			fail();
 		}
 	}

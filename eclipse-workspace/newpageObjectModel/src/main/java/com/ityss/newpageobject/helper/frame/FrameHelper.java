@@ -40,6 +40,10 @@ public class FrameHelper
 	public void switchToFrame(WebElement element){
 		driver.switchTo().frame(element);
 		log.info("switched to frame "+element.toString());
+		
 	}
+	
+	/*driver.switchTo().parentFrame();
+    driver.switchTo().defaultContent();*/
 
 }

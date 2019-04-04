@@ -19,7 +19,8 @@ public class WindowHelper
 	/**
 	 * This method will switch to parent window
 	 */
-	public void switchToParentWindow() {
+	public void switchToParentWindow() 
+	{
 		log.info("switching to parent window...");
 		driver.switchTo().defaultContent();
 	}
@@ -49,8 +50,10 @@ public class WindowHelper
 		Set<String> windows = driver.getWindowHandles();
 		String mainwindow = driver.getWindowHandle();
 
-		for (String window : windows) {
-			if (!window.equalsIgnoreCase(mainwindow)) {
+		for (String window : windows) 
+		{
+			if (!window.equalsIgnoreCase(mainwindow)) 
+			{
 				driver.close();
 			}
 		}
