@@ -3,7 +3,8 @@ package com.cnqaos.utils;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
-public class Retry implements IRetryAnalyzer {
+public class Retry implements IRetryAnalyzer 
+{
     private int retryCount = 0;
     private int maxRetryCount = 2;
 

@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -23,7 +24,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 
 import com.cnqaos.testbase.TestBase;
 
@@ -40,7 +43,7 @@ public class TestUtils extends  TestBase
 	
 	public static int PAGELOAD = 20;
 	public static int IMPLICIT = 10;
-	public static WebDriverWait wait = new WebDriverWait(driver, 10);
+	
 
 	public static String userdirectory = System.getProperty("user.dir");
 	static Workbook book;

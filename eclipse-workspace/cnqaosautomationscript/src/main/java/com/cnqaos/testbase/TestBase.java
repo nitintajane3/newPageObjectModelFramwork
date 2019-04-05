@@ -1,21 +1,30 @@
 package com.cnqaos.testbase;
 
-import java.beans.IntrospectionException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.NoSuchElementException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.cnqaos.utils.TestUtils;
 import com.cnqaos.utils.WebEventListener;
+import com.google.common.base.Function;
 
 public class TestBase 
 {
@@ -24,6 +33,8 @@ public class TestBase
 	public  static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
 	public static final int invocationcount = 4;
+	
+	
 	
 	
 	public TestBase() throws IOException
@@ -87,15 +98,54 @@ public class TestBase
 	
 	public void widnowsAlertAccept() throws InterruptedException 
 	{
-		Thread.sleep(6000);
+		webdriverExplicitWaitForAlert();
 		Alert alert = driver.switchTo().alert();
 		alert.accept();
 	}
 	
 	public void widowsAlertDismiss() throws InterruptedException 
 	{
-		Thread.sleep(6000);
+		webdriverExplicitWaitForAlert();
 		Alert alert = driver.switchTo().alert();
 		alert.dismiss();
 	}
-}
+	
+	public String widowsAlertGetText() throws InterruptedException 
+	{	
+		webdriverExplicitWaitForAlert();
+	
+		/*wait.withTimeout(5000, TimeUnit.MILLISECONDS);
+		 //Sepcify polling time
+		 wait.pollingEvery(250, TimeUnit.MILLISECONDS);
+		 //Specify what exceptions to ignore
+		 wait.ignoring(NoSuchElementException.class);*/
+		 
+		 
+		 
+		 
+		//Thread.sleep(6000);
+		Alert alert = driver.switchTo().alert();
+		String gettextfromalert = alert.getText();
+		return gettextfromalert;
+	}
+	
+	public void webdriverExplicitWaitForAlert() 
+	{
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.alertIsPresent());
+	}
+	
+	public void webdriverExplicitWaitElementVisible(WebElement element) 
+	{
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.elementToBeSelected(element));
+	}
+	
+	public void webdriverExplicitWaitElementToBeClickable(WebElement element) 
+	{
+		WebDriverWait wait = new WebDriverWait(driver,20);
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+	}
+	
+	
+	}

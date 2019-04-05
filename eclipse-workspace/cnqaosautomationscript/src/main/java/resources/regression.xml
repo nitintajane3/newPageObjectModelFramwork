@@ -4,6 +4,7 @@
 <test name = "testname">
 <classes>
  <class name  = "com.test.cnqaos.testcases.TestngValidation">
+ 
 </class>
 </classes>
 </test>

@@ -27,7 +27,7 @@ public class TestngValidation extends TestBase
 		// TODO Auto-generated constructor stub
 	}
 
-	final int cour =5;
+	 final int cour =5;
 	
 	@BeforeTest()
 	public void testbefore()
@@ -37,6 +37,7 @@ public class TestngValidation extends TestBase
 		sct.click().build().perform();
 		
 	WebElement enene = null;
+	
 	
 	enene.findElement(By.xpath("")).click();
 	}

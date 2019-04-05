@@ -13,12 +13,13 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.cnqaos.testbase.TestBase;
-import com.cnqaos.utils.TestUtils;
+
 
 public class UserPage extends TestBase
 {
 	
 	Select select;
+	public static WebDriverWait wait = new WebDriverWait(driver, 10);
 	
 	
 	public UserPage() throws IOException
@@ -204,8 +205,9 @@ public class UserPage extends TestBase
 	public void enterName(String nametext) 
 	{
 		
-		TestUtils.wait.until(ExpectedConditions.elementToBeClickable(name)).clear();
+		wait.until(ExpectedConditions.elementToBeClickable(name)).clear();
 		name.sendKeys(nametext);
+	
 	}
 	
 	public void enterAddress(String addresstext) 
@@ -230,7 +232,7 @@ public class UserPage extends TestBase
 		
 		WebElement citysearchresult = driver.findElement(By.xpath("//ul[@class='typeahead ng-isolate-scope'][@role='listbox']/li[1]/a"));
 		
-		WebDriverWait wait =  new  WebDriverWait(driver, 10);
+		//WebDriverWait wait =  new  WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.elementToBeClickable(citysearchresult));
 		
 		citysearchresult.click();

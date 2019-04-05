@@ -19,6 +19,7 @@ import com.cnqaos.pages.LoginPage;
 import com.cnqaos.testbase.TestBase;
 import com.cnqaos.utils.NewExtendReport;
 import com.cnqaos.utils.TestUtils;
+import com.cnqaos.utils.emailReport;
 
 
 public class LoginTest extends TestBase

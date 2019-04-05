@@ -105,7 +105,7 @@ public class StudentPage extends TestBase
 	@FindBy(xpath="//td[@align='center']/dir-pagination-controls/ul/li")
 	List<WebElement> paginationcount;
 	
-	@FindBy(xpath="//table[@class='table table-striped']/tfoot/tr/td/dir-pagination-controls/ul/li[@class='ng-scope'][@ng-if='directionLinks']/a")
+	@FindBy(xpath="//table[@class='table table-striped']/tfoot/tr/td/dir-pagination-controls/ul/li[@class='ng-scope'][@ng-if='directionLinks']/a[@ng-click='setCurrent(pagination.current + 1)']")
 	WebElement btnforwordpegination;
 	
 	@FindBy(xpath="//button[@id='editButton']")

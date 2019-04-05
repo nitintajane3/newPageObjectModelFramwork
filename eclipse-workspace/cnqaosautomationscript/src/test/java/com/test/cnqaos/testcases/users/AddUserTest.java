@@ -55,8 +55,7 @@ public class AddUserTest extends TestBase
 			String sebrogated,String activities, String validated,String active) throws IOException, InterruptedException
 	
 	{
-		
-		
+	
 		adduserpage.addUserButton();
 		
 		adduserpage.selectCenter(centername);
